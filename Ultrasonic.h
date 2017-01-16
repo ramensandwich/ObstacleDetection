@@ -1,4 +1,7 @@
+#ifndef ULTRASONIC_H
+#define ULTRASONIC_H
 #include <SoftwareSerial.h>
+#include "Arduino.h"
 
 enum ReadingType {LISTEN, SHORT, LONG};
 
@@ -21,3 +24,5 @@ class Ultrasonic {
   private:
     uint8_t hexFromReadingType(ReadingType type);
 };
+
+#endif
