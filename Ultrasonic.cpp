@@ -1,7 +1,10 @@
 #include "Ultrasonic.h"
 
 // constructor
-Ultrasonic::Ultrasonic(const byte rxPin, const byte txPin) : serial(rxPin,txPin) {}
+Ultrasonic::Ultrasonic(const byte rxPin, const byte txPin, uint16_t baudrate) {
+    serial(rxPin,txPin);
+    serial.begin(baudrate);
+}
 
 
 // send to serial
