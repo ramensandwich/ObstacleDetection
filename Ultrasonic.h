@@ -7,7 +7,7 @@ enum ReadingType {LISTEN, SHORT, LONG};
 
 class Ultrasonic {
   public:
-    Ultrasonic(const byte rxPin, const byte txPin);
+    Ultrasonic(const byte rxPin, const byte txPin, uint16_t baudrate);
     ~Ultrasonic() {}
 
     void send(uint8_t hex);
