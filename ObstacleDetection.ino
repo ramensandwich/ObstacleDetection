@@ -1,12 +1,16 @@
-#include <SoftwareSerial.h>
+#include "Ultrasonic.h"
 
-SoftwareSerial mySerial(10,11); //RX, TX
+#define RX 10
+#define TX 11
+#define BAUD 19200
+
+
+Ultrasonic ultra(RX,TX,BAUD);
 
 
 void setup() {
   Serial.begin(57600);
   Serial.println("Serial started!");
-  mySerial.begin(19200);
 }
 
 void loop() {
