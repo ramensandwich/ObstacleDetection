@@ -50,8 +50,9 @@ def main():
         #dist = distance to obstacle in centimeters.  We're looking to keep it around 150
 
         error = int(GOAL - dist)
+        steerValue = min(max(P * error, -1500), 1500)
 
-        steerCmd(P * error)
+        steerCmd(steerValue)
 
 
         print dist
