@@ -1,16 +1,20 @@
 #include "Ultrasonic.h"
 
 // constructor
-Ultrasonic::Ultrasonic(const byte rxPin, const byte txPin, uint16_t baudrate) : serial(rxPin,txPin) {
-    serial.begin(baudrate);
+Ultrasonic::Ultrasonic(uint16_t baudrate) {
+    Serial1.begin(baudrate);
 }
 
 
 // send to serial
 void Ultrasonic::send(uint8_t hex) {
-    serial.write(hex);
+    Serial1.write(hex);
 }
 
+// read from serial
+uint8_t Ultrasonic::read() {
+    return Serial1.read();
+}
 
 // convert type to hex (listen, short or long
 uint8_t Ultrasonic::hexFromReadingType(ReadingType type) {
@@ -19,7 +23,7 @@ uint8_t Ultrasonic::hexFromReadingType(ReadingType type) {
         case SHORT:  return 0x01; break;
         case LONG:   return 0x02; break;
     }
-    
+
     return 0x00;
 }
 
@@ -47,10 +51,10 @@ uint16_t Ultrasonic::readFirstThreshold() {
     send(0x21);
     send(0x00);
 
-    uint16_t highbyte  = serial.read();
-    uint16_t lowbyte = serial.read();
+    uint16_t highbyte  = Serial1.read();
+    uint16_t lowbyte = Serial1.read();
     highbyte <<= 8;
-    serial.read(); // dump checksum
+    Serial1.read(); // dump checksum
 
     return highbyte+lowbyte;
 }
