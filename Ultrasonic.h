@@ -1,7 +1,8 @@
 #ifndef ULTRASONIC_H
 #define ULTRASONIC_H
-#include <SoftwareSerial.h>
 #include "Arduino.h"
+#include <SoftwareSerial.h>
+
 
 enum ReadingType {LISTEN, SHORT, LONG};
 

@@ -1,8 +1,9 @@
 #include "Ultrasonic.h"
 
 // constructor
-Ultrasonic::Ultrasonic(uint16_t baudrate) {
-    Serial1.begin(baudrate);
+Ultrasonic::Ultrasonic(uint16_t baudrate){
+    //Serial1.begin(baudrate);
+    //serial.begin(baudrate);
 }
 
 
